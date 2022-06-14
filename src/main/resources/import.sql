@@ -1,0 +1,1 @@
+INSERT INTO CATEGORIA(NOME) values ('Informática')
