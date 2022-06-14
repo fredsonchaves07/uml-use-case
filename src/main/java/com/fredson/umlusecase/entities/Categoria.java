@@ -1,6 +1,8 @@
 package com.fredson.umlusecase.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
@@ -10,6 +12,8 @@ public class Categoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
@@ -21,7 +25,6 @@ public class Categoria implements Serializable {
         this.nome = nome;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
