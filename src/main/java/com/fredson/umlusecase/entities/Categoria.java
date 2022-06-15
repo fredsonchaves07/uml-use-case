@@ -2,6 +2,8 @@ package com.fredson.umlusecase.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,12 +17,14 @@ public class Categoria implements Serializable {
 
     private String nome;
 
-    public Categoria() {}
+    @ManyToMany(mappedBy = "categorias")
+    private List<Produto> produtos = new ArrayList<>();
 
-    public Categoria(Long id, String nome) {
-        this.id = id;
+    public Categoria(String nome) {
         this.nome = nome;
     }
+
+    public Categoria() {}
 
     public Long getId() {
         return id;
@@ -32,6 +36,14 @@ public class Categoria implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(Produto produto) {
+        this.produtos.add(produto);
     }
 
     @Override
