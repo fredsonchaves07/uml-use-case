@@ -1,5 +1,6 @@
 package com.fredson.umlusecase.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fredson.umlusecase.entities.enums.TipoCliente;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class Cliente implements Serializable {
 
     private String CPFOuCNPJ;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 
