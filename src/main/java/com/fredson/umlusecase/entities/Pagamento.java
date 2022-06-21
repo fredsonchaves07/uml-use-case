@@ -2,17 +2,23 @@ package com.fredson.umlusecase.entities;
 
 import com.fredson.umlusecase.entities.enums.EstadoPagamento;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
 public class Pagamento implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
     private int id;
 
     private EstadoPagamento estadoPagamento;
 
+    @OneToOne
+    @JoinColumn(name = "pedido_id")
+    @MapsId
     private Pedido pedido;
 
     private Cliente cliente;
