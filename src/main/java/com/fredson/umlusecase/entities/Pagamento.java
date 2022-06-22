@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Pagamento implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,8 +22,12 @@ public class Pagamento implements Serializable {
     @MapsId
     private Pedido pedido;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @ManyToOne
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
     public Pagamento() {}

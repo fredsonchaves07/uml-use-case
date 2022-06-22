@@ -2,6 +2,9 @@ package com.fredson.umlusecase.entities;
 
 import com.fredson.umlusecase.entities.enums.EstadoPagamento;
 
+import javax.persistence.Entity;
+
+@Entity
 public class PagamentoComCartao extends Pagamento {
 
     private static final long serialVersionUID = 1L;
